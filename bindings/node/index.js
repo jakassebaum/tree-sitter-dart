@@ -15,8 +15,11 @@ try {
   }
 }
 
-// Export the language object directly for tree-sitter v0.25.0 compatibility
-module.exports = binding.language;
+// Export object with name and language properties for compatibility
+module.exports = {
+  name: binding.name,
+  language: binding.language
+};
 
 try {
   module.exports.nodeTypeInfo = require("../../src/node-types.json");
