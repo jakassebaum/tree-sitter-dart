@@ -1,4 +1,5 @@
 {
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
   "name": "dart",
   "word": "identifier",
   "rules": {
@@ -1456,8 +1457,21 @@
                 "value": "u[0-9a-fA-F]{4}"
               },
               {
-                "type": "PATTERN",
-                "value": "u{[0-9a-fA-F]+}"
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "u{"
+                  },
+                  {
+                    "type": "PATTERN",
+                    "value": "[0-9a-fA-F]{1,6}"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "}"
+                  }
+                ]
               }
             ]
           }
@@ -10455,6 +10469,6 @@
     "_declaration",
     "_statement",
     "_literal"
-  ]
+  ],
+  "reserved": {}
 }
-

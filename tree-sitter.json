@@ -1,0 +1,10 @@
+{
+  "metadata": {
+    "name": "dart",
+    "scope": "source.dart",
+    "file-types": ["dart"],
+    "injection-regex": "dart",
+    "version": "1.0.0"
+  },
+  "abi_version": 15
+}
