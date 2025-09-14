@@ -503,7 +503,7 @@
     "init_module": "/Users/jak/.npm-init.js",
     "userconfig": "/Users/jak/.npmrc",
     "globalconfig": "/Users/jak/dotfiles/nodejs/.nvm/versions/node/v22.19.0/etc/npmrc",
-    "local_prefix": "/Users/jak/Github/WKassebaum/claude-codeindex/node_modules/.pnpm/tree-sitter-dart@1.0.0/node_modules/tree-sitter-dart",
+    "local_prefix": "/Users/jak/Github/WKassebaum/tree-sitter-dart",
     "global_prefix": "/Users/jak/dotfiles/nodejs/.nvm/versions/node/v22.19.0"
   }
 }

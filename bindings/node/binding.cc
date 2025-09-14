@@ -1,28 +1,19 @@
-#include "tree_sitter/parser.h"
-#include <node.h>
-#include "nan.h"
+#include <napi.h>
 
-using namespace v8;
+typedef struct TSLanguage TSLanguage;
 
-extern "C" TSLanguage * tree_sitter_dart();
+extern "C" TSLanguage *tree_sitter_dart();
 
+// "tree-sitter", "language" hashed
 namespace {
 
-NAN_METHOD(New) {}
-
-void Init(Local<Object> exports, Local<Object> module) {
-  Local<FunctionTemplate> tpl = Nan::New<FunctionTemplate>(New);
-  tpl->SetClassName(Nan::New("Language").ToLocalChecked());
-  tpl->InstanceTemplate()->SetInternalFieldCount(1);
-
-  Local<Function> constructor = Nan::GetFunction(tpl).ToLocalChecked();
-  Local<Object> instance = constructor->NewInstance(Nan::GetCurrentContext()).ToLocalChecked();
-  Nan::SetInternalFieldPointer(instance, 0, tree_sitter_dart());
-
-  Nan::Set(instance, Nan::New("name").ToLocalChecked(), Nan::New("dart").ToLocalChecked());
-  Nan::Set(module, Nan::New("exports").ToLocalChecked(), instance);
+Napi::Object Init(Napi::Env env, Napi::Object exports) {
+    exports["name"] = Napi::String::New(env, "dart");
+    auto *language = tree_sitter_dart();
+    exports["language"] = Napi::External<TSLanguage>::New(env, language);
+    return exports;
 }
 
-NODE_MODULE(tree_sitter_dart_binding, Init)
+NODE_API_MODULE(tree_sitter_dart_binding, Init)
 
 }  // namespace

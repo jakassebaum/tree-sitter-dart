@@ -13,6 +13,7 @@ DEFS_Debug := \
 	'-D_LARGEFILE_SOURCE' \
 	'-DOPENSSL_NO_PINSHARED' \
 	'-DOPENSSL_THREADS' \
+	'-DNAPI_DISABLE_CPP_EXCEPTIONS' \
 	'-DBUILDING_NODE_EXTENSION' \
 	'-DDEBUG' \
 	'-D_DEBUG'
@@ -22,7 +23,7 @@ CFLAGS_Debug := \
 	-O0 \
 	-gdwarf-2 \
 	-fno-strict-aliasing \
-	-mmacosx-version-min=11.0 \
+	-mmacosx-version-min=10.7 \
 	-arch \
 	arm64 \
 	-Wall \
@@ -37,8 +38,7 @@ CFLAGS_C_Debug :=
 CFLAGS_CC_Debug := \
 	-std=gnu++17 \
 	-stdlib=libc++ \
-	-fno-rtti \
-	-fno-exceptions
+	-fno-rtti
 
 # Flags passed to only ObjC files.
 CFLAGS_OBJC_Debug :=
@@ -54,7 +54,7 @@ INCS_Debug := \
 	-I/Users/jak/Library/Caches/node-gyp/22.19.0/deps/uv/include \
 	-I/Users/jak/Library/Caches/node-gyp/22.19.0/deps/zlib \
 	-I/Users/jak/Library/Caches/node-gyp/22.19.0/deps/v8/include \
-	-I$(srcdir)/../../../nan@2.23.0/node_modules/nan \
+	-I/Users/jak/Github/WKassebaum/tree-sitter-dart/node_modules/node-addon-api \
 	-I$(srcdir)/src
 
 DEFS_Release := \
@@ -68,6 +68,7 @@ DEFS_Release := \
 	'-D_LARGEFILE_SOURCE' \
 	'-DOPENSSL_NO_PINSHARED' \
 	'-DOPENSSL_THREADS' \
+	'-DNAPI_DISABLE_CPP_EXCEPTIONS' \
 	'-DBUILDING_NODE_EXTENSION'
 
 # Flags passed to all source files.
@@ -75,7 +76,7 @@ CFLAGS_Release := \
 	-O3 \
 	-gdwarf-2 \
 	-fno-strict-aliasing \
-	-mmacosx-version-min=11.0 \
+	-mmacosx-version-min=10.7 \
 	-arch \
 	arm64 \
 	-Wall \
@@ -90,8 +91,7 @@ CFLAGS_C_Release :=
 CFLAGS_CC_Release := \
 	-std=gnu++17 \
 	-stdlib=libc++ \
-	-fno-rtti \
-	-fno-exceptions
+	-fno-rtti
 
 # Flags passed to only ObjC files.
 CFLAGS_OBJC_Release :=
@@ -107,7 +107,7 @@ INCS_Release := \
 	-I/Users/jak/Library/Caches/node-gyp/22.19.0/deps/uv/include \
 	-I/Users/jak/Library/Caches/node-gyp/22.19.0/deps/zlib \
 	-I/Users/jak/Library/Caches/node-gyp/22.19.0/deps/v8/include \
-	-I$(srcdir)/../../../nan@2.23.0/node_modules/nan \
+	-I/Users/jak/Github/WKassebaum/tree-sitter-dart/node_modules/node-addon-api \
 	-I$(srcdir)/src
 
 OBJS := \
@@ -153,7 +153,7 @@ $(obj).$(TOOLSET)/$(TARGET)/%.o: $(obj)/%.c FORCE_DO_CMD
 LDFLAGS_Debug := \
 	-undefined dynamic_lookup \
 	-Wl,-search_paths_first \
-	-mmacosx-version-min=11.0 \
+	-mmacosx-version-min=10.7 \
 	-arch \
 	arm64 \
 	-L$(builddir) \
@@ -166,7 +166,7 @@ LIBTOOLFLAGS_Debug := \
 LDFLAGS_Release := \
 	-undefined dynamic_lookup \
 	-Wl,-search_paths_first \
-	-mmacosx-version-min=11.0 \
+	-mmacosx-version-min=10.7 \
 	-arch \
 	arm64 \
 	-L$(builddir) \
