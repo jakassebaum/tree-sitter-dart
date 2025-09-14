@@ -1,0 +1,22 @@
+{
+  "grammars": [
+    {
+      "name": "dart",
+      "camelcase": "Dart",
+      "scope": "source.dart",
+      "path": ".",
+      "file-types": [
+        "dart"
+      ],
+      "highlights": "queries/highlights.scm",
+      "injection-regex": "dart"
+    }
+  ],
+  "metadata": {
+    "version": "0.0.1",
+    "license": "MIT"
+  },
+  "bindings": {
+    "node": true
+  }
+}

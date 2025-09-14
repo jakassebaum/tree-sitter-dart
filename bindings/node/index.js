@@ -17,11 +17,8 @@ try {
   }
 }
 
-// Export the language directly like other working parsers
-module.exports = binding.language;
-
-// Add name property for compatibility
-module.exports.name = binding.name;
+// Export the binding which contains language and name
+module.exports = binding;
 
 try {
   module.exports.nodeTypeInfo = require("../../src/node-types.json");
